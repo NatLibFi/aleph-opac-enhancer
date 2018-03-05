@@ -1,5 +1,5 @@
 # Aleph OPAC enhancer
-Middleware software for modifying requests and responses of [Aleph](http://www.exlibrisgroup.com/products/aleph-integrated-library-system/) web server.
+Middleware for modifying requests and responses of [Aleph](http://www.exlibrisgroup.com/products/aleph-integrated-library-system/) OPAC.
 
 ## License and copyright
 
