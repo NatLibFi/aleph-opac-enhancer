@@ -27,7 +27,7 @@ sub KILL_handler
 {
   my ($signal) = @_;
   writelog("SIG$signal received" . ($is_child ? ' (child)' : ' (main)'));
-            
+
   if (!$is_child)
   {
     debuglog('Sending TERM signal to children (' . scalar(keys %children) . ')');
@@ -40,7 +40,7 @@ sub KILL_handler
       }
     }
   }
-        
+
   unlink($pid_file) if ($daemon);
   exit(0);
 }
@@ -347,7 +347,7 @@ sub processRequest($$$$$)
     my $cb = require($config{request}{$module});
     my $module_config = $config{"request_$module"} if $config{"request_$module"};
 
-    debuglog('Executing request module $module');
+    debuglog("Executing request module $module");
 
     my $retval = &$cb($apache_ref, $www_server_ref, $request_attrs_ref, $data_ref, $datalen, $module_config);
     if (!$modified && $retval) {
@@ -366,7 +366,7 @@ sub processResponse($$$$$$)
     my $cb = require($config{response}{$module});
     my $module_config = $config{"response_$module"} if $config{"response_$module"};
 
-    debuglog('Executing response module $module');
+    debuglog("Executing response module $module");
 
     &$cb($apache_ref, $www_server_ref, $request_attrs_ref, $headers_ref, $content_ref, $datalen, $module_config);
   }
